@@ -1,5 +1,5 @@
 <p align="center">
-    <h3 align="center">Fastify Test API</h3>
+    <h3 align="center">fastify-api</h3>
 </p>  
 
 <details open="open">
