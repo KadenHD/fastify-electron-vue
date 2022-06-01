@@ -20,5 +20,19 @@ npm run build
 npm run lint
 ```
 
+### Compiles and launch for electron
+```
+npm run electron:serve
+```
+
+### Compiles and minifies for electron
+```
+npm run electron:build
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+# To-Do
+
+- Solve Vuetify import / Js to Ts
