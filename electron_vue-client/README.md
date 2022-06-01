@@ -35,4 +35,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-Do
 
-- Solve Vuetify import / Js to Ts
+- 
