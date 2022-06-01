@@ -1,0 +1,28 @@
+{
+  "name": "fastify-api-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "dev": "concurrently --kill-others \"tsc -w\" \"nodemon dist/server.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/env": "^3.0.0",
+    "dotenv": "^16.0.1",
+    "fastify": "^3.29.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.20.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.36",
+    "concurrently": "^7.2.1",
+    "nodemon": "^2.0.16",
+    "typescript": "^4.7.2"
+  }
+}
