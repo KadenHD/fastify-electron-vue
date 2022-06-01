@@ -1,4 +1,4 @@
-# electron-client-test
+# electron_vue-client
 
 ## Project setup
 ```
