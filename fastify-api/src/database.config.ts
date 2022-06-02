@@ -10,7 +10,7 @@ const database = new Sequelize(
         timezone: '+01:00',
         dialect: 'mysql',
         host: process.env.DB_HOST as string,
-        logging: false /* Uncomment while on prod (avoid consolelog db requests) */
+        logging: false /* Uncomment while on prod to avoid database logs (true by default)) */
     }
 )
 
