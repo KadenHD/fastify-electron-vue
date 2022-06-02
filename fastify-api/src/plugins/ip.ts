@@ -2,14 +2,14 @@ import os from 'os'
 
 export const getAddress = (port: string) => {
     const networkInterfaces = os.networkInterfaces()
-    var publicIp = null
+    var publicIp = ''
     if (networkInterfaces['Wi-Fi'] !== undefined) {
         networkInterfaces['Wi-Fi'].forEach(wifi => {
             if (wifi.family === 'IPv4') {
                 publicIp = `http://${wifi.address}:${port}`
             }
         })
-        if (publicIp === null) {
+        if (publicIp === '') {
             publicIp = "Aucune adresse IPv4 n'a été trouvée pour ce réseau Wi-Fi !"
         }
     }
@@ -19,7 +19,7 @@ export const getAddress = (port: string) => {
                 publicIp = `http://${ether.address}:${port}`
             }
         })
-        if (publicIp === null) {
+        if (publicIp === '') {
             publicIp = "Aucune adresse IPv4 n'a été trouvée pour ce réseau Wi-Fi !"
         }
     }
