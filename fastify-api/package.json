@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
-    "dev": "concurrently --kill-others \"tsc -w\" \"nodemon dist/server.js\""
+    "dev": "concurrently --kill-others \"tsc -w\" \"nodemon dist/server.js\"",
+    "buildDb": "node dist/scripts/buildDb.js"
   },
   "keywords": [],
   "author": "",
