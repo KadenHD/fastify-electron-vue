@@ -12,7 +12,8 @@ const routes: Array<RouteConfig> = [
   ...userRouter,
   {
     path: "/",
-    redirect: { name: 'Home' }
+    name: "Default",
+    redirect: { name: 'Home' } // change by beforeEnter to verify perm
   },
   {
     path: "/home",
