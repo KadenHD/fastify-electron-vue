@@ -1,5 +1,5 @@
 {
-  "name": "electron-client-test",
+  "name": "electron_vue-client",
   "version": "0.1.0",
   "private": true,
   "scripts": {
