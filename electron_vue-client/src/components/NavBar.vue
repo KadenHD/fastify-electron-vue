@@ -1,7 +1,7 @@
 <template>
   <div class="NavBar">
-    <v-app-bar app absolute>
-      <router-link class="mr-1 ml-1" :to="{ name: 'Home' }">
+    <v-app-bar app absolute elevation="8">
+      <router-link class="mr-1 ml-1" :to="{ name: 'Default' }">
         <v-img
           src="@/assets/logo.png"
           lazy-src="@/assets/logo.png"
@@ -10,9 +10,9 @@
         ></v-img
       ></router-link>
       <v-divider class="mr-5 ml-2" vertical inset></v-divider>
-      <v-app-bar-title class="hidden-md-and-up" align-items="center"
-        >Titre</v-app-bar-title
-      >
+      <v-app-bar-title class="hidden-md-and-up" align-items="center">{{
+        appTitle
+      }}</v-app-bar-title>
       <div class="hidden-sm-and-down">
         <v-row justify="start" align-items="center">
           <div class="ml-2 mr-2 nav-link" v-for="(item, i) in linkTab" :key="i">
@@ -55,7 +55,9 @@
 import router from "@/router";
 
 export default {
+  name: "NavBar",
   data() {
+    const appTitle: string = "Title";
     const drawer: boolean = false;
     const linkTab: Array<Object> = [
       { icon: "mdi-login-variant", text: "Connexion", value: "Login" },
@@ -63,6 +65,7 @@ export default {
       { icon: "mdi-account-multiple", text: "Utilisateurs", value: "Users" },
     ];
     return {
+      appTitle,
       drawer,
       linkTab,
     };
