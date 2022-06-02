@@ -35,4 +35,4 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-Do
 
-- 
+- Fix or re-do nav drawer

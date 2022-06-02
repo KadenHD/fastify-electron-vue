@@ -1,8 +1,10 @@
+import Users from "@/views/Users.vue"
+
 export default [
     {
         path: '/users',
         name: 'Users',
-        // component: ,
+        component: Users,
         meta: {
             title: 'Utilisateurs'
         },

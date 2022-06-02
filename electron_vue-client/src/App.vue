@@ -1,45 +1,23 @@
 <template>
-  <v-app>
-    <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <router-link class="nav-link" :to="{ name: 'Home' }">Home</router-link>
-        <router-link class="nav-link ml-2" :to="{ name: 'About' }"
-          >About</router-link
-        >
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://vuetifyjs.com/en/getting-started/installation/"
-        target="_blank"
-        text
-      >
-        Vuetify doc
-      </v-btn>
-    </v-app-bar>
-
-    <v-main>
-      <router-view></router-view>
-    </v-main>
-  </v-app>
+  <div class="App">
+    <v-app>
+      <nav-bar />
+      <v-main>
+        <v-container fluid>
+          <router-view></router-view>
+        </v-container>
+      </v-main>
+    </v-app>
+  </div>
 </template>
 
 <script lang="ts">
+import NavBar from "@/components/NavBar.vue";
+
 export default {
   name: "App",
-
-  components: {},
-
-  data: () => ({
-    //
-  }),
+  components: {
+    NavBar,
+  },
 };
 </script>
-
-<style>
-.nav-link {
-  text-decoration: none;
-  color: white !important;
-}
-</style>
