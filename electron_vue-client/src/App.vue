@@ -13,11 +13,12 @@
 
 <script lang="ts">
 import NavBar from "@/components/NavBar.vue";
+import Vue from "vue";
 
-export default {
+export default Vue.extend({
   name: "App",
   components: {
     NavBar,
   },
-};
+});
 </script>
