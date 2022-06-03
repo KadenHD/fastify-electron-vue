@@ -1,8 +1,22 @@
 <template>
   <div class="Login">
     <card-wrapper :title="title" :subtitle="subtitle">
-      <ui-input />
-      <ui-button />
+      <v-form ref="form">
+        <ui-input
+          v-for="(item, index) in inputs"
+          :key="index"
+          :rules="item.rules"
+          :label="item.label"
+          :counter="item.counter"
+          :type="item.type"
+          v-model="item.value"
+        />
+        <ui-button
+          :handleClick="submitLoginForm"
+          color="primary"
+          value="Se connecter"
+        />
+      </v-form>
     </card-wrapper>
   </div>
 </template>
@@ -11,14 +25,44 @@
 import CardWrapper from "@/components/CardWrapper.vue";
 import UiInput from "@/components/ui/Input.vue";
 import UiButton from "@/components/ui/Button.vue";
+import { emailRules, passwordRules } from "@/plugins/inputRules";
 
-export default {
-  data() {
-    const title: string = "Connexion";
-    const subtitle: string =
-      "Nous ne montrons vos informations personnelles à aucun autre utilisateur";
-    return { title, subtitle };
-  },
+import Vue from "vue";
+
+export default Vue.extend({
   components: { CardWrapper, UiInput, UiButton },
-};
+  data: () => ({
+    inputs: {
+      email: {
+        value: null,
+        rules: emailRules,
+        label: "E-mail",
+        counter: false,
+        type: "email",
+      },
+      password: {
+        value: null,
+        rules: passwordRules,
+        label: "Mot de passe",
+        counter: true,
+        type: "password",
+      },
+    },
+    title: "Connexion",
+    subtitle:
+      "Nous ne montrons vos informations personnelles à aucun autre utilisateur",
+  }),
+  methods: {
+    submitLoginForm() {
+      const form: any = this.$refs.form;
+      if (form.validate()) {
+        const data = {
+          email: this.inputs.email.value,
+          password: this.inputs.password.value,
+        };
+        console.log(data);
+      }
+    },
+  },
+});
 </script>
