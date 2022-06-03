@@ -35,13 +35,16 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-Do
 
-- fix "default Electron icon is used reason=application icon is not set"
 - Nav Bar faire des onglets déroulants dans le drawer
 - Faire des regex pour inputRules
 
-- Ajouter les css :
+- Ajouter les colors dans vuetify/css :
 0d1b2a
 1b263b
 415a77
 778da9
 e0e1dd
+
+# Documentations
+
+- Add favicon images in "public/img/icons" with this converter : [Link](https://favicon.io/favicon-converter/)
