@@ -31,6 +31,12 @@
     </v-app-bar>
 
     <v-navigation-drawer v-model="drawer" absolute temporary>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-title> Actions </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <v-divider></v-divider>
       <v-list nav dense>
         <v-list-item-group>
           <v-list-item
@@ -53,21 +59,19 @@
 // import { mapGetters } from "vuex";
 // import store from "@/store";
 import router from "@/router";
+import Vue from "vue";
 
-export default {
+export default Vue.extend({
   name: "NavBar",
-  data() {
-    const appTitle: string = "Title";
-    const drawer: boolean = false;
-    const linkTab: Array<Object> = [
-      { icon: "mdi-login-variant", text: "Connexion", value: "Login" },
-      { icon: "mdi-account-plus", text: "Inscription", value: "Register" },
-      { icon: "mdi-account-multiple", text: "Utilisateurs", value: "Users" },
-    ];
+  data: () => {
     return {
-      appTitle,
-      drawer,
-      linkTab,
+      appTitle: "Swashing",
+      drawer: false,
+      linkTab: [
+        { icon: "mdi-login-variant", text: "Connexion", value: "Login" },
+        { icon: "mdi-account-plus", text: "Inscription", value: "Register" },
+        { icon: "mdi-account-multiple", text: "Utilisateurs", value: "Users" },
+      ],
     };
   },
   methods: {
@@ -77,7 +81,7 @@ export default {
       }
     },
   },
-};
+});
 </script>
 
 <style lang="scss">
