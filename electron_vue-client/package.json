@@ -1,5 +1,7 @@
 {
   "name": "electron_vue-client",
+  "description": "Un client electron-vue",
+  "author": "Pierre Clément",
   "version": "0.1.0",
   "private": true,
   "scripts": {
