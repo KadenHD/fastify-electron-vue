@@ -35,10 +35,11 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-Do
 
+- fix "default Electron icon is used reason=application icon is not set"
 - Nav Bar faire des onglets déroulants dans le drawer
 - Faire des regex pour inputRules
 
-
+- Ajouter les css :
 0d1b2a
 1b263b
 415a77
