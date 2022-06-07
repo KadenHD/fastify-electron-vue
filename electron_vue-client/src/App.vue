@@ -12,13 +12,20 @@
 </template>
 
 <script lang="ts">
-import NavBar from "@/components/NavBar.vue";
 import Vue from "vue";
+import { VApp, VMain, VContainer } from "vuetify/lib";
+import NavBar from "@/components/NavBar.vue";
 
 export default Vue.extend({
   name: "App",
   components: {
+    VApp,
+    VMain,
+    VContainer,
     NavBar,
   },
 });
 </script>
+
+<style lang="scss">
+</style>
