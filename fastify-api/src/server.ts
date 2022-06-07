@@ -2,7 +2,7 @@ import fastify from 'fastify'
 import * as msg from './utils/chalk'
 import * as ip from './utils/ip'
 import defaultRoutes from './routes/index'
-import database from './database.config'
+import database from './configs/database'
 import dotenv from 'dotenv'
 dotenv.config()
 
