@@ -23,6 +23,7 @@
 
 <script lang="ts">
 import Vue from "vue";
+import { VForm } from "vuetify/lib";
 import CardWrapper from "@/components/CardWrapper.vue";
 import UiInput from "@/components/ui/Input.vue";
 import UiButton from "@/components/ui/Button.vue";
@@ -34,7 +35,8 @@ import {
 } from "@/plugins/inputRules";
 
 export default Vue.extend({
-  components: { CardWrapper, UiInput, UiButton },
+  name: "Register",
+  components: { VForm, CardWrapper, UiInput, UiButton },
   data: () => ({
     inputs: {
       lastname: {
@@ -87,3 +89,6 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style lang="scss">
+</style>
