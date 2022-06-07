@@ -12,8 +12,14 @@
 </template>
 
 <script lang="ts">
-export default {
+import Vue from "vue";
+import { VTextField } from "vuetify/lib";
+
+export default Vue.extend({
   name: "UiInput",
+  components: {
+    VTextField,
+  },
   props: {
     rules: Array,
     label: String,
@@ -21,5 +27,8 @@ export default {
     type: String,
     value: String,
   },
-};
+});
 </script>
+
+<style lang="scss">
+</style>
