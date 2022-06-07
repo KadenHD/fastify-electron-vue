@@ -1,4 +1,3 @@
-
 const regex_email = () => { return /.+@.+\..+/; };
 const regex_password = () => { return /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.*\d).*$/; }; /* at least one Uppercase, one Lowercase, one special char and one number in any order.*/
 const regex_name = () => { return /^(?=^[a-zA-Z-]*$)(?=.*[A-Z]+[a-z][A-Z]*)/; }; /* Start with one Uppercase, one Lowercase just after, white space, special char and number not allowed only hyphen.*/
