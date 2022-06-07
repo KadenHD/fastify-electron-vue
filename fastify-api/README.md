@@ -111,4 +111,4 @@ DB_HOST=''
 
 # To-do
 
-- addHook, onRequest
+- addHook, onRequest as a middleware
