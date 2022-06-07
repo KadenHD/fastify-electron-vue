@@ -22,15 +22,16 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
+import { VForm } from "vuetify/lib";
 import CardWrapper from "@/components/CardWrapper.vue";
 import UiInput from "@/components/ui/Input.vue";
 import UiButton from "@/components/ui/Button.vue";
 import { emailRules, passwordRules } from "@/plugins/inputRules";
 
-import Vue from "vue";
-
 export default Vue.extend({
-  components: { CardWrapper, UiInput, UiButton },
+  name: "Login",
+  components: { VForm, CardWrapper, UiInput, UiButton },
   data: () => ({
     inputs: {
       email: {
@@ -66,3 +67,6 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style lang="scss">
+</style>
