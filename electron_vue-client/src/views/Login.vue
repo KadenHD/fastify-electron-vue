@@ -27,7 +27,7 @@ import { VForm } from "vuetify/lib";
 import CardWrapper from "@/components/CardWrapper.vue";
 import UiInput from "@/components/ui/Input.vue";
 import UiButton from "@/components/ui/Button.vue";
-import { emailRules, passwordRules } from "@/plugins/inputRules";
+import { emailRule, passwordRule } from "@/utils/inputRule";
 
 export default Vue.extend({
   name: "Login",
@@ -36,14 +36,14 @@ export default Vue.extend({
     inputs: {
       email: {
         value: null,
-        rules: emailRules,
+        rules: emailRule,
         label: "E-mail",
         counter: false,
         type: "email",
       },
       password: {
         value: null,
-        rules: passwordRules,
+        rules: passwordRule,
         label: "Mot de passe",
         counter: true,
         type: "password",
