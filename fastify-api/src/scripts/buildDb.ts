@@ -1,5 +1,5 @@
 import database from '../database.config';
-import * as msg from '../plugins/chalk'
+import * as msg from '../utils/chalk'
 import '../models/Models'; /* Models with constraints */
 
 console.log(`${msg.infoMsg('Creating Database...')}`)
