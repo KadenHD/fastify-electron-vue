@@ -13,11 +13,30 @@
 </template>
 
 <script lang="ts">
-export default {
+import Vue from "vue";
+import {
+  VRow,
+  VCard,
+  VContainer,
+  VCardTitle,
+  VCardSubtitle,
+} from "vuetify/lib";
+
+export default Vue.extend({
   name: "CardWrapper",
+  components: {
+    VRow,
+    VCard,
+    VContainer,
+    VCardTitle,
+    VCardSubtitle,
+  },
   props: {
     subtitle: String,
     title: String,
   },
-};
+});
 </script>
+
+<style lang="scss">
+</style>
