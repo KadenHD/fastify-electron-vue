@@ -36,8 +36,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # To-Do
 
 - Nav Bar faire des onglets déroulants dans le drawer
-- Faire des regex pour inputRules
-
 - Ajouter les colors dans vuetify/css : {
     0d1b2a
     1b263b
