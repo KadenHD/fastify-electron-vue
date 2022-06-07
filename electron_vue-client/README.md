@@ -35,6 +35,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-Do
 
+- Remplacer tous les localStorage par des fonctions dans utils/token.ts
+- Faire les beforeEnter
 - Nav Bar faire des onglets déroulants dans le drawer
 - Ajouter les colors dans vuetify/css : {
     0d1b2a
