@@ -1,4 +1,4 @@
-import database from '../database.config';
+import database from '../configs/database';
 import * as msg from '../utils/chalk'
 import '../models/Models'; /* Models with constraints */
 
