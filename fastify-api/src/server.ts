@@ -1,6 +1,6 @@
 import fastify from 'fastify'
-import * as msg from './plugins/chalk'
-import { getAddress } from './plugins/ip'
+import * as msg from './utils/chalk'
+import * as ip from './utils/ip'
 import defaultRoutes from './routes/index'
 import database from './database.config'
 import dotenv from 'dotenv'
@@ -42,7 +42,7 @@ const start = async () => {
         else {
             console.log(`${msg.successMsg('Server launched !')}`)
             console.log(`${msg.infoMsg("Local")}  ➞  ${address}`)
-            console.log(`${msg.infoMsg("Public")} ➞  ${getAddress(process.env.SERVER_PORT as string)}`)
+            console.log(`${msg.infoMsg("Public")} ➞  ${ip.getAddress(process.env.SERVER_PORT as string)}`)
         }
     })
 }
