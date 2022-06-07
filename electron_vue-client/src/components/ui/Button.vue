@@ -7,12 +7,21 @@
 </template>
 
 <script lang="ts">
-export default {
+import Vue from "vue";
+import { VBtn } from "vuetify/lib";
+
+export default Vue.extend({
   name: "UiButton",
+  components: {
+    VBtn,
+  },
   props: {
     handleClick: Function,
     color: String,
     value: String,
   },
-};
+});
 </script>
+
+<style lang="scss">
+</style>
