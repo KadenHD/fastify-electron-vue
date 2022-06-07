@@ -28,11 +28,11 @@ import CardWrapper from "@/components/CardWrapper.vue";
 import UiInput from "@/components/ui/Input.vue";
 import UiButton from "@/components/ui/Button.vue";
 import {
-  firstNameRules,
-  lastNameRules,
-  emailRules,
-  passwordRules,
-} from "@/plugins/inputRules";
+  firstNameRule,
+  lastNameRule,
+  emailRule,
+  passwordRule,
+} from "@/utils/inputRule";
 
 export default Vue.extend({
   name: "Register",
@@ -41,28 +41,28 @@ export default Vue.extend({
     inputs: {
       lastname: {
         value: null,
-        rules: lastNameRules,
+        rules: lastNameRule,
         label: "Nom",
         counter: false,
         type: "text",
       },
       firstname: {
         value: null,
-        rules: firstNameRules,
+        rules: firstNameRule,
         label: "Prénom",
         counter: false,
         type: "text",
       },
       email: {
         value: null,
-        rules: emailRules,
+        rules: emailRule,
         label: "E-mail",
         counter: false,
         type: "email",
       },
       password: {
         value: null,
-        rules: passwordRules,
+        rules: passwordRule,
         label: "Mot de passe",
         counter: true,
         type: "password",
