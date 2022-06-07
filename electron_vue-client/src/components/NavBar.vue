@@ -56,13 +56,45 @@
 </template>
 
 <script lang="ts">
-// import { mapGetters } from "vuex";
-// import store from "@/store";
-import router from "@/router";
 import Vue from "vue";
+import {
+  VAppBar,
+  VImg,
+  VDivider,
+  VAppBarTitle,
+  VRow,
+  VSpacer,
+  VAppBarNavIcon,
+  VNavigationDrawer,
+  VListItem,
+  VListItemContent,
+  VListItemTitle,
+  VList,
+  VListItemGroup,
+  VListItemIcon,
+  VIcon,
+} from "vuetify/lib";
+import router from "@/router";
 
 export default Vue.extend({
   name: "NavBar",
+  components: {
+    VAppBar,
+    VImg,
+    VDivider,
+    VAppBarTitle,
+    VRow,
+    VSpacer,
+    VAppBarNavIcon,
+    VNavigationDrawer,
+    VListItem,
+    VListItemContent,
+    VListItemTitle,
+    VList,
+    VListItemGroup,
+    VListItemIcon,
+    VIcon,
+  },
   data: () => {
     return {
       appTitle: "Swashing",
