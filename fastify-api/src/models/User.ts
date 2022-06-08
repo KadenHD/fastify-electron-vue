@@ -4,6 +4,7 @@ import database from "../configs/database"
 const User = database.define("user", {
     id: {
         type: Sequelize.STRING(36),
+        defaultValue: Sequelize.UUIDV4,
         primaryKey: true
     },
     lastname: {
