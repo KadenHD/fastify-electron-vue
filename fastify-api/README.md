@@ -112,4 +112,5 @@ DB_HOST=''
 
 # To-do
 
+- Faire une expiration sur le token et le vérifier dans isAuth
 - voir si la fonction d'ip pue pas un peu
