@@ -10,7 +10,7 @@ export const getAddress = (port: string) => {
             }
         })
         if (publicIp === '') {
-            publicIp = "Aucune adresse IPv4 n'a été trouvée pour ce réseau Wi-Fi !"
+            publicIp = "No IPv4 adress found on this Wi-Fi"
         }
     }
     else if (networkInterfaces['Ethernet'] !== undefined) {
@@ -20,11 +20,11 @@ export const getAddress = (port: string) => {
             }
         })
         if (publicIp === '') {
-            publicIp = "Aucune adresse IPv4 n'a été trouvée pour ce réseau Wi-Fi !"
+            publicIp = "No IPv4 adress found on this Wi-Fi"
         }
     }
     else {
-        publicIp = "Votre adresse IP sur le réseau est introuvable !"
+        publicIp = "No IPv4 adress found on this Wi-Fi"
     }
     return (publicIp)
 }
