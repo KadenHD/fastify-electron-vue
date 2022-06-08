@@ -5,8 +5,14 @@ import { isValidLastName, isValidFirstName, isValidEmail, isValidPassword } from
 import dotenv from 'dotenv'
 dotenv.config()
 
+export const extractBearerToken = (headerValue: any) => {
+    if (typeof headerValue != 'string') return false
+    const matches = headerValue.match(/(bearer)\s+(\S+)/i)
+    return matches && matches[2]
+}
+
 export const isAuth = async (token: any) => {
-    const extractedToken: any = token && extractBearerToken(token);
+    const extractedToken: any = token && extractBearerToken(token)
     if (extractedToken) {
         const decriptedToken: any = jwt.verify(extractedToken, process.env.SECRET_TOKEN as string)
         const user: any = await User.findByPk(decriptedToken.id)
@@ -59,10 +65,4 @@ const isMatchingPassword = async (email: string, password: string) => {
     } else {
         return false
     }
-}
-
-const extractBearerToken = (headerValue) => {
-    if (typeof headerValue != 'string') return false;
-    const matches = headerValue.match(/(bearer)\s+(\S+)/i);
-    return matches && matches[2];
 }
