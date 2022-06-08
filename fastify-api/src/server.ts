@@ -1,4 +1,4 @@
-import fastify from 'fastify'
+import fastify, { FastifyInstance } from 'fastify'
 import * as msg from './utils/chalk'
 import * as ip from './utils/ip'
 import defaultRoutes from './routes/index'
@@ -8,7 +8,7 @@ dotenv.config()
 
 const start = async () => {
 
-    const server = fastify()
+    const server: FastifyInstance = fastify()
 
     /* Set the database connection */
     console.log(`${msg.infoMsg("Connecting to Database...")}`)
