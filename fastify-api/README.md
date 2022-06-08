@@ -112,4 +112,4 @@ DB_HOST=''
 
 # To-do
 
-- addHook, onRequest as a middleware
+- voir si la fonction d'ip pue pas un peu
