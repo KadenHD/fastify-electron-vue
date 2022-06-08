@@ -2,9 +2,25 @@ import * as bcrypt from 'bcrypt'
 import * as jwt from 'jsonwebtoken'
 import { FastifyReply, FastifyRequest } from "fastify"
 import User from '../models/User'
-import { isAuth, isValidLoginForm, isValidRegisterForm } from "../validations/auths"
+import { extractBearerToken, isAuth, isValidLoginForm, isValidRegisterForm } from "../validations/auths"
 import dotenv from 'dotenv'
 dotenv.config
+
+export const getCurrentUser = async (req: FastifyRequest, res: FastifyReply) => {
+    if (await isAuth(req.headers.authorization)) {
+        const token: any = req.headers.authorization && extractBearerToken(req.headers.authorization)
+        if (!token) res.send({ currentUser: null })
+        try {
+            const extractedToken: any = jwt.verify(token, process.env.SECRET_TOKEN as string)
+            const currentUser: any = await User.findByPk(extractedToken.id)
+            res.send({ currentUser: currentUser })
+        } catch (err) {
+            res.send({ currentUser: null })
+        }
+    } else {
+        res.send({ currentUser: null })
+    }
+}
 
 export const login = async (req: FastifyRequest, res: FastifyReply) => {
     if (!await isAuth(req.headers.authorization)) {
