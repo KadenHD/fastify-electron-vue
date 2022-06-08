@@ -1,15 +1,18 @@
 import * as bcrypt from 'bcrypt'
+import * as jwt from 'jsonwebtoken'
 import { FastifyReply, FastifyRequest } from "fastify"
 import User from '../models/User'
-import { isNotAuth, isValidLoginForm, isValidRegisterForm } from "../validations/auths"
+import { isAuth, isValidLoginForm, isValidRegisterForm } from "../validations/auths"
+import dotenv from 'dotenv'
+dotenv.config
 
 export const login = async (req: FastifyRequest, res: FastifyReply) => {
-    if (isNotAuth(req.headers.authorization)) {
+    if (!await isAuth(req.headers.authorization)) {
         if (await isValidLoginForm(req.body)) {
             const body: any = req.body
-            const data: any = await User.findOne({ where: { email: body.email } })
-            // créer le token de session et l'envoyer
-            res.send({ token: 'token', currentUser: data })
+            const user: any = await User.findOne({ where: { email: body.email } })
+            const token: any = jwt.sign({ id: user.id }, process.env.SECRET_TOKEN as string)
+            res.send({ token: token, currentUser: user })
         } else {
             res.send('Le formulaire est invalide')
         }
@@ -17,7 +20,7 @@ export const login = async (req: FastifyRequest, res: FastifyReply) => {
 }
 
 export const register = async (req: FastifyRequest, res: FastifyReply) => {
-    if (isNotAuth(req.headers.authorization)) {
+    if (!await isAuth(req.headers.authorization)) {
         if (await isValidRegisterForm(req.body)) {
             const body: any = req.body
             const salt: any = bcrypt.genSaltSync(10)
