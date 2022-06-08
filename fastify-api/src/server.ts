@@ -10,6 +10,8 @@ const start = async () => {
 
     const server: FastifyInstance = fastify()
 
+    server.register(require("@fastify/cors"), { origin: "*" });
+
     /* Set the database connection */
     console.log(`${msg.infoMsg("Connecting to Database...")}`)
     try {
