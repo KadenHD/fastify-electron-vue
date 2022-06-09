@@ -87,6 +87,7 @@ npm run dev
 
 > Create in the root folder a file named '.env' and fill the infos according to your database and credentials.
 ```
+SECRET_CRYPTO=''
 SECRET_TOKEN=''
 SERVER_PORT=''
 DB_NAME=''
@@ -112,6 +113,6 @@ DB_HOST=''
 
 # To-do
 
-- faire le cryptage avant l'envoi en bdd et décryptage sur les données reçu
+- faire des tests unitaires
 - voir si la fonction d'ip pue pas un peu
 - Faire une expiration sur le token et le vérifier dans isAuth
