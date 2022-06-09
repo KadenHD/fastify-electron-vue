@@ -8,7 +8,12 @@ dotenv.config()
 export const extractBearerToken = (headerValue: any) => {
     if (typeof headerValue != 'string') return false
     const matches = headerValue.match(/(bearer)\s+(\S+)/i)
-    return matches && matches[2]
+    if (matches && matches[2] === 'null') {
+        return null
+    } else {
+        return matches && matches[2]
+    }
+
 }
 
 export const isAuth = async (token: any) => {
