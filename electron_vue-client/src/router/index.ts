@@ -1,20 +1,33 @@
 import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import Home from "@/views/Home.vue";
+import User from "@/views/User.vue";
+import Admin from "@/views/Admin.vue";
 import NotFound from '@/views/NotFound.vue';
 import authRouter from '@/router/auth';
-import userRouter from '@/router/user';
+import { homeRedirections } from "@/utils/beforeEnter";
 
 Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   ...authRouter,
-  ...userRouter,
   {
     path: "/",
     name: "Default",
-    redirect: { name: 'Home' } // change by beforeEnter to verify perm
+    redirect: { name: 'Home' }
   },
+
+  {
+    path: "/admin",
+    name: "Admin",
+    component: Admin,
+  },
+  {
+    path: "/user",
+    name: "User",
+    component: User,
+  },
+
   {
     path: "/home",
     name: "Home",
@@ -22,7 +35,7 @@ const routes: Array<RouteConfig> = [
     meta: {
       title: 'Home'
     },
-    // beforeEnter: ,
+    beforeEnter: homeRedirections,
   },
   {
     path: '/404',
