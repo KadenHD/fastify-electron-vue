@@ -37,11 +37,11 @@ export const login = async (req: FastifyRequest, res: FastifyReply) => {
                 ]
             })
             const token: any = jwt.sign({ id: user.id }, process.env.SECRET_TOKEN as string)
-            res.send({ token: token, currentUser: user })
+            res.code(200).send({ token: token, currentUser: user })
         } else {
-            res.send('Le formulaire est invalide')
+            res.code(400).send('Le formulaire est invalide')
         }
-    } else { res.send('Vous êtes connecté') }
+    } else { res.code(400).send('Vous êtes connecté') }
 }
 
 export const register = async (req: FastifyRequest, res: FastifyReply) => {
