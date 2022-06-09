@@ -1,5 +1,6 @@
-import Login from "@/views/Login.vue"
-import Register from "@/views/Register.vue"
+import { isNotLogged } from "@/utils/beforeEnter";
+import Login from "@/views/Login.vue";
+import Register from "@/views/Register.vue";
 
 export default [
     {
@@ -9,7 +10,7 @@ export default [
         meta: {
             title: 'Connexion'
         },
-        // beforeEnter: ,
+        beforeEnter: isNotLogged
     },
     {
         path: "/register",
@@ -18,6 +19,6 @@ export default [
         meta: {
             title: 'Inscription'
         },
-        // beforeEnter: ,
+        beforeEnter: isNotLogged
     },
-]
+];
