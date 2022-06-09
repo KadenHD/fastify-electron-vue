@@ -15,17 +15,19 @@
           appTitle
         }}</v-app-bar-title>
         <div class="hidden-sm-and-down">
-          <v-row justify="start" align-items="center">
-            <div v-if="currentUser.role.label === 'ROLE_ADMIN'">
-              <link-nav :linkTab="linkTab.admin" logout> </link-nav>
-            </div>
-            <div v-if="currentUser.role.label === 'ROLE_USER'">
-              <link-nav :linkTab="linkTab.user" logout> </link-nav>
-            </div>
-            <div v-if="!currentUser">
-              <link-nav :linkTab="linkTab.unlog"> </link-nav>
-            </div>
-          </v-row>
+          <link-nav
+            v-if="currentUser && currentUser.role.label === 'ROLE_ADMIN'"
+            :linkTab="linkTab.admin"
+            logout
+          >
+          </link-nav>
+          <link-nav
+            v-if="currentUser && currentUser.role.label === 'ROLE_USER'"
+            :linkTab="linkTab.user"
+            logout
+          >
+          </link-nav>
+          <link-nav v-if="!currentUser" :linkTab="linkTab.unlog"> </link-nav>
         </div>
         <v-spacer></v-spacer>
         <v-app-bar-nav-icon
@@ -45,10 +47,10 @@
         <v-divider></v-divider>
         <v-list nav dense>
           <v-list-item-group>
-            <div v-if="currentUser.role.label === 'ROLE_ADMIN'">
+            <div v-if="currentUser && currentUser.role.label === 'ROLE_ADMIN'">
               <link-drawer :linkTab="linkTab.admin" logout></link-drawer>
             </div>
-            <div v-if="currentUser.role.label === 'ROLE_USER'">
+            <div v-if="currentUser && currentUser.role.label === 'ROLE_USER'">
               <link-drawer :linkTab="linkTab.user" logout></link-drawer>
             </div>
             <div v-if="!currentUser">
@@ -69,7 +71,6 @@ import {
   VImg,
   VDivider,
   VAppBarTitle,
-  VRow,
   VSpacer,
   VAppBarNavIcon,
   VNavigationDrawer,
@@ -89,7 +90,6 @@ export default Vue.extend({
     VImg,
     VDivider,
     VAppBarTitle,
-    VRow,
     VSpacer,
     VAppBarNavIcon,
     VNavigationDrawer,

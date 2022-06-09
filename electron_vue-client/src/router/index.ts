@@ -5,7 +5,7 @@ import User from "@/views/User.vue";
 import Admin from "@/views/Admin.vue";
 import NotFound from '@/views/NotFound.vue';
 import authRouter from '@/router/auth';
-import { homeRedirections } from "@/utils/beforeEnter";
+import { homeRedirections, isAdmin, isUser } from "@/utils/beforeEnter";
 
 Vue.use(VueRouter);
 
@@ -21,11 +21,19 @@ const routes: Array<RouteConfig> = [
     path: "/admin",
     name: "Admin",
     component: Admin,
+    meta: {
+      title: 'Administrateur'
+    },
+    beforeEnter: isAdmin
   },
   {
     path: "/user",
     name: "User",
     component: User,
+    meta: {
+      title: 'Utilisateur'
+    },
+    beforeEnter: isUser
   },
 
   {

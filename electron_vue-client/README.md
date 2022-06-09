@@ -35,7 +35,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-Do
 
-- faire le logout
+- faire un système d'alert, vuetitfy de préférence
 - Nav Bar faire des onglets déroulants dans le drawer
 - Ajouter les colors dans vuetify/css : {
     0d1b2a

@@ -43,11 +43,22 @@ export default {
                     console.log(error.response)
                 });
         },
+        register(context: any, data: any) {
+            axios
+                .post(prefix + "register", data)
+                .then((response) => {
+                    console.log(response.data) // alert
+                    router.push({ name: 'Login' })
+                })
+                .catch((error) => {
+                    console.log(error.response)
+                });
+        },
         logout(context: any) {
             context.commit('currentUser', null);
             removeToken();
-            context.commit('clearAll');
-            router.push({ name: "Home" });
+            context.dispatch('clearAll');
+            router.push({ name: 'Login' });
         },
         clearAll(context: any) {
             context.commit("alert", {});

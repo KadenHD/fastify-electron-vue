@@ -1,6 +1,6 @@
 <template>
   <div class="NotFound">
-    <v-btn class="font-weight-black" :to="{ name: 'Home' }"
+    <v-btn class="font-weight-black" :to="{ name: 'Default' }"
       >Retouner sur le site</v-btn
     >
   </div>

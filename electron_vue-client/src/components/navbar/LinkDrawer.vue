@@ -23,6 +23,7 @@
 import Vue from "vue";
 import { VListItem, VListItemIcon, VIcon, VListItemTitle } from "vuetify/lib";
 import router from "@/router";
+import store from "@/store";
 
 export default Vue.extend({
   name: "LinkDrawer",
@@ -38,7 +39,7 @@ export default Vue.extend({
       }
     },
     clickedLogout() {
-      console.log("logout");
+      store.dispatch("logout");
     },
   },
 });

@@ -33,6 +33,7 @@ import {
   emailRule,
   passwordRule,
 } from "@/utils/inputRule";
+import store from "@/store";
 
 export default Vue.extend({
   name: "Register",
@@ -83,7 +84,7 @@ export default Vue.extend({
           email: this.inputs.email.value,
           password: this.inputs.password.value,
         };
-        console.log(data);
+        store.dispatch("register", data);
       }
     },
   },

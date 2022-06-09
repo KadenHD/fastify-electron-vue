@@ -5,9 +5,9 @@ export const getToken = () => {
 }
 
 export const removeToken = () => {
-    return localStorage.removeItem(token);
+    localStorage.removeItem(token);
 }
 
 export const setToken = (data: any) => {
-    return localStorage.setItem("dragnreceive-web-token", data);
+    localStorage.setItem(token, data);
 }
