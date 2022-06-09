@@ -35,9 +35,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 # To-Do
 
-- Remplacer tous les localStorage par des fonctions dans utils/token.ts
-- faire les requêtes axios
-- Faire les beforeEnter
+- faire le logout
 - Nav Bar faire des onglets déroulants dans le drawer
 - Ajouter les colors dans vuetify/css : {
     0d1b2a
