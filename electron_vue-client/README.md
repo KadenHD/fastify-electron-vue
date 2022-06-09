@@ -1,5 +1,11 @@
 # electron_vue-client
 
+## Prerequisites
+> Create a .env file at root of the project
+```
+VUE_APP_URL='http://url:port/api'
+```
+
 ## Project setup
 ```
 npm install
