@@ -2,7 +2,7 @@ import * as bcrypt from 'bcrypt'
 import User from '../models/User'
 import jwt from 'jsonwebtoken'
 import { isValidLastName, isValidFirstName, isValidEmail, isValidPassword } from './inputs'
-import { decrypt, encrypt, encryptUser } from '../utils/crypto'
+import { encrypt } from '../utils/crypto'
 import dotenv from 'dotenv'
 dotenv.config()
 
@@ -64,7 +64,7 @@ const isExistingEmail = async (email: string) => {
 }
 
 const isMatchingPassword = async (email: string, password: string) => {
-    const user: any = encryptUser(await User.findOne({ where: { email: encrypt(email) } }))
+    const user: any = await User.findOne({ where: { email: encrypt(email) } })
     const match: boolean = await bcrypt.compare(password, user.password)
     if (match) {
         return true
