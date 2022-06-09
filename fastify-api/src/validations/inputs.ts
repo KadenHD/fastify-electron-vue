@@ -1,8 +1,8 @@
-const regex_email: any = () => { return /.+@.+\..+/; };
-const regex_password: any = () => { return /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.*\d).*$/; }; /* at least one Uppercase, one Lowercase, one special char and one number in any order.*/
-const regex_name: any = () => { return /^(?=^[a-zA-Z-]*$)(?=.*[A-Z]+[a-z][A-Z]*)/; }; /* Start with one Uppercase, one Lowercase just after, white space, special char and number not allowed only hyphen.*/
-const regex_min: any = (v: String) => { return new RegExp("^.{" + v + ",9999}$", "g"); };
-const regex_max: any = (v: String) => { return new RegExp("^.{0," + v + "}$", "g"); };
+const regex_email: any = () => { return /.+@.+\..+/ }
+const regex_password: any = () => { return /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.*\d).*$/ } /* at least one Uppercase, one Lowercase, one special char and one number in any order.*/
+const regex_name: any = () => { return /^(?=^[a-zA-Z-]*$)(?=.*[A-Z]+[a-z][A-Z]*)/ } /* Start with one Uppercase, one Lowercase just after, white space, special char and number not allowed only hyphen.*/
+const regex_min: any = (v: String) => { return new RegExp("^.{" + v + ",9999}$", "g") }
+const regex_max: any = (v: String) => { return new RegExp("^.{0," + v + "}$", "g") }
 
 export const isValidLastName = (key: any) => {
     const type: boolean = typeof key === 'string'
