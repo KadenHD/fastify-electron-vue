@@ -2,30 +2,23 @@ import CryptoJS from "crypto-js"
 import dotenv from 'dotenv'
 dotenv.config()
 
-const secret: any = CryptoJS.enc.Utf8.parse(process.env.SECRET_CRYPTO as string);
-const iv: any = CryptoJS.enc.Base64.parse(process.env.SECRET_CRYPTO as string);
+const secret: any = process.env.SECRET_CRYPTO;
 
-export const encrypt = (key: any) => {
-    return (
-        CryptoJS.AES.encrypt(
-            key, secret, { iv: iv }
-        ).toString()
-    )
-}
+export const encrypt = (text: string) => {
+    const hash: any = CryptoJS.SHA256(secret);
+    const ciphertext: any = CryptoJS.AES.encrypt(text, hash, {
+        mode: CryptoJS.mode.ECB,
+    });
+    return ciphertext.toString();
+};
 
-export const decrypt = (key: any) => {
-    return (
-        CryptoJS.enc.Utf8.stringify(
-            CryptoJS.AES.decrypt(
-                { ciphertext: CryptoJS.enc.Base64.parse(key) } as any,
-                secret,
-                {
-                    iv: iv
-                }
-            )
-        )
-    )
-}
+export const decrypt = (text: string) => {
+    const hash: any = CryptoJS.SHA256(secret);
+    const bytes: any = CryptoJS.AES.decrypt(text, hash, {
+        mode: CryptoJS.mode.ECB,
+    });
+    return bytes.toString(CryptoJS.enc.Utf8);
+};
 
 export const encryptUser = (user: any) => {
     user.lastname = encrypt(user.lastname)
