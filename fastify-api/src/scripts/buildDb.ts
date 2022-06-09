@@ -1,8 +1,9 @@
 import database from '../configs/database'
 import * as bcrypt from 'bcrypt'
 import * as msg from '../utils/chalk'
-import '../models/Models' /* Models with constraints */
 import { User, Role } from '../models/Models'
+import { encryptUser } from '../utils/crypto'
+import '../models/Models' /* Models with constraints */
 
 console.log(`${msg.infoMsg('Creating Database...')}`)
 database
@@ -25,7 +26,7 @@ const createEntities = async () => {
     ])
     const hashedPassword: string = bcrypt.hashSync('Password1@', bcrypt.genSaltSync(10))
     await User.bulkCreate([
-        { lastname: 'Admin', firstname: 'Admin', email: 'admin@admin.admin', password: hashedPassword, roleId: '1' },
-        { lastname: 'User', firstname: 'User', email: 'user@user.user', password: hashedPassword, roleId: '2' }
+        encryptUser({ lastname: 'Admin', firstname: 'Admin', email: 'admin@admin.admin', password: hashedPassword, roleId: '1' }),
+        encryptUser({ lastname: 'User', firstname: 'User', email: 'user@user.user', password: hashedPassword, roleId: '2' })
     ])
 }

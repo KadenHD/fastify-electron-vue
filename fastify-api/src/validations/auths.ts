@@ -2,6 +2,7 @@ import * as bcrypt from 'bcrypt'
 import User from '../models/User'
 import jwt from 'jsonwebtoken'
 import { isValidLastName, isValidFirstName, isValidEmail, isValidPassword } from './inputs'
+import { decrypt, encrypt, encryptUser } from '../utils/crypto'
 import dotenv from 'dotenv'
 dotenv.config()
 
@@ -19,8 +20,8 @@ export const extractBearerToken = (headerValue: any) => {
 export const isAuth = async (token: any) => {
     const extractedToken: any = token && extractBearerToken(token)
     if (extractedToken) {
-        const decriptedToken: any = jwt.verify(extractedToken, process.env.SECRET_TOKEN as string)
-        const user: any = await User.findByPk(decriptedToken.id)
+        const decryptedToken: any = jwt.verify(extractedToken, process.env.SECRET_TOKEN as string)
+        const user: any = await User.findByPk(decryptedToken.id)
         if (user) {
             return true
         } else {
@@ -55,7 +56,7 @@ export const isValidRegisterForm = async (body: any) => {
 }
 
 const isExistingEmail = async (email: string) => {
-    if (await User.findOne({ where: { email: email } })) {
+    if (await User.findOne({ where: { email: encrypt(email) } })) {
         return true
     } else {
         return false
@@ -63,7 +64,7 @@ const isExistingEmail = async (email: string) => {
 }
 
 const isMatchingPassword = async (email: string, password: string) => {
-    const user: any = await User.findOne({ where: { email: email } })
+    const user: any = encryptUser(await User.findOne({ where: { email: encrypt(email) } }))
     const match: boolean = await bcrypt.compare(password, user.password)
     if (match) {
         return true

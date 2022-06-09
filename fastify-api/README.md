@@ -112,5 +112,6 @@ DB_HOST=''
 
 # To-do
 
-- Faire une expiration sur le token et le vérifier dans isAuth
+- faire le cryptage avant l'envoi en bdd et décryptage sur les données reçu
 - voir si la fonction d'ip pue pas un peu
+- Faire une expiration sur le token et le vérifier dans isAuth
