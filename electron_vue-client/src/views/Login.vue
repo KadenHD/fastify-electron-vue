@@ -28,6 +28,7 @@ import CardWrapper from "@/components/CardWrapper.vue";
 import UiInput from "@/components/ui/Input.vue";
 import UiButton from "@/components/ui/Button.vue";
 import { emailRule, passwordRule } from "@/utils/inputRule";
+import store from "@/store";
 
 export default Vue.extend({
   name: "Login",
@@ -61,7 +62,7 @@ export default Vue.extend({
           email: this.inputs.email.value,
           password: this.inputs.password.value,
         };
-        console.log(data);
+        store.dispatch("login", data);
       }
     },
   },
