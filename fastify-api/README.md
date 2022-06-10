@@ -1,5 +1,5 @@
-<p align="center">
-    <h3 align="center">fastify-api</h3>
+<p align-items="center">
+    <h3 align-items="center">fastify-api</h3>
 </p>  
 
 <details open="open">
@@ -44,6 +44,7 @@
     <li>
       <a href="#Documentations">Documentations</a>
     </li>
+  </ol>
 </details> 
     
 # Introduction
@@ -87,8 +88,8 @@ npm run dev
 
 > Create in the root folder a file named '.env' and fill the infos according to your database and credentials.
 ```
-SECRET_CRYPTO=''
-SECRET_TOKEN=''
+SECRET_CRYPTO='' /* 22 length */
+SECRET_TOKEN='' /* 22 length */
 SERVER_PORT=''
 DB_NAME=''
 DB_USER=''
