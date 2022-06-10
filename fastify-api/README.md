@@ -88,8 +88,8 @@ npm run dev
 
 > Create in the root folder a file named '.env' and fill the infos according to your database and credentials.
 ```
-SECRET_CRYPTO='' /* 22 length */
-SECRET_TOKEN='' /* 22 length */
+SECRET_CRYPTO='' # 22 length
+SECRET_TOKEN='' # 22 length
 SERVER_PORT=''
 DB_NAME=''
 DB_USER=''
