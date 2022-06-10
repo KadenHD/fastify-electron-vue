@@ -4,15 +4,14 @@ import { FastifyReply, FastifyRequest } from "fastify"
 import { User, Role } from '../models/Models'
 import { extractBearerToken, isAuth, isValidLoginForm, isValidRegisterForm } from "../validations/auths"
 import { decryptUser, encrypt, encryptUser } from '../utils/crypto'
-import dotenv from 'dotenv'
-dotenv.config()
+import { env } from '../utils/env'
 
 export const getCurrentUser = async (req: FastifyRequest, res: FastifyReply) => {
     if (await isAuth(req.headers.authorization)) {
         const token: any = req.headers.authorization && extractBearerToken(req.headers.authorization)
         if (!token) res.send({ currentUser: null })
         try {
-            const extractedToken: any = jwt.verify(token, process.env.SECRET_TOKEN as string)
+            const extractedToken: any = jwt.verify(token, env.secret.token)
             const currentUser: any = decryptUser(await User.findByPk(extractedToken.id, {
                 include: [
                     { model: Role }
@@ -37,7 +36,7 @@ export const login = async (req: FastifyRequest, res: FastifyReply) => {
                     { model: Role }
                 ]
             }))
-            const token: any = jwt.sign({ id: user.id }, process.env.SECRET_TOKEN as string)
+            const token: any = jwt.sign({ id: user.id }, env.secret.token)
             res.code(200).send({ token: token, currentUser: user })
         } else {
             res.code(400).send('Le formulaire est invalide')

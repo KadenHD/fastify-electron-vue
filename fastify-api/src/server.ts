@@ -1,10 +1,9 @@
 import fastify, { FastifyInstance } from 'fastify'
 import * as msg from './utils/chalk'
-import * as ip from './utils/ip'
+import ip from 'ip'
 import defaultRoutes from './routes/index'
 import database from './configs/database'
-import dotenv from 'dotenv'
-dotenv.config()
+import { env } from './utils/env'
 
 const start = async () => {
 
@@ -36,7 +35,7 @@ const start = async () => {
 
     /* Set the server */
     console.log(`${msg.infoMsg("Launching the server...")}`)
-    server.listen(process.env.SERVER_PORT as string, (err, address) => {
+    server.listen(env.server.port, (err, address) => {
         if (err) {
             console.error(msg.errorMsg(err.toString()))
             process.exit(1)
@@ -44,7 +43,7 @@ const start = async () => {
         else {
             console.log(`${msg.successMsg('Server launched !')}`)
             console.log(`${msg.infoMsg("Local")}  ➞  ${address}`)
-            console.log(`${msg.infoMsg("Public")} ➞  ${ip.getAddress(process.env.SERVER_PORT as string)}`)
+            console.log(`${msg.infoMsg("Public")} ➞  http://${ip.address()}:${env.server.port}`)
         }
     })
 }

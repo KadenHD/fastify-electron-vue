@@ -1,15 +1,14 @@
 import { Sequelize } from "sequelize"
-import dotenv from 'dotenv'
-dotenv.config()
+import { env } from "../utils/env"
 
 const database = new Sequelize(
-    process.env.DB_NAME as string,
-    process.env.DB_USER as string,
-    process.env.DB_PASS as string,
+    env.db.name,
+    env.db.user,
+    env.db.pass,
     {
         timezone: '+00:00',
         dialect: 'mysql',
-        host: process.env.DB_HOST as string,
+        host: env.db.host,
         logging: false /* Uncomment while on prod to avoid database logs (true by default)) */
     }
 )

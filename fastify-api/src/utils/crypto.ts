@@ -1,9 +1,8 @@
 import CryptoJS from "crypto-js"
-import dotenv from 'dotenv'
-dotenv.config()
+import { env } from "./env"
 
-const secret: any = CryptoJS.enc.Base64.parse(process.env.SECRET_CRYPTO as string) /* length = 22 */
-const iv: any = CryptoJS.enc.Base64.parse(process.env.SECRET_IV as string) /* length = 22 */
+const secret: any = CryptoJS.enc.Base64.parse(env.secret.crypto) /* length = 22 */
+const iv: any = CryptoJS.enc.Base64.parse(env.secret.iv) /* length = 22 */
 
 export const encrypt = (text: string) => {
     return CryptoJS.AES.encrypt(text, secret, { iv: iv }).toString()

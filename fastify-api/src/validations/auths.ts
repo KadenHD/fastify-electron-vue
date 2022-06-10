@@ -3,8 +3,7 @@ import User from '../models/User'
 import jwt from 'jsonwebtoken'
 import { isValidLastName, isValidFirstName, isValidEmail, isValidPassword } from './inputs'
 import { encrypt } from '../utils/crypto'
-import dotenv from 'dotenv'
-dotenv.config()
+import { env } from '../utils/env'
 
 export const extractBearerToken = (headerValue: any) => {
     if (typeof headerValue != 'string') return false
@@ -20,7 +19,7 @@ export const extractBearerToken = (headerValue: any) => {
 export const isAuth = async (token: any) => {
     const extractedToken: any = token && extractBearerToken(token)
     if (extractedToken) {
-        const decryptedToken: any = jwt.verify(extractedToken, process.env.SECRET_TOKEN as string)
+        const decryptedToken: any = jwt.verify(extractedToken, env.secret.token)
         const user: any = await User.findByPk(decryptedToken.id)
         if (user) {
             return true
