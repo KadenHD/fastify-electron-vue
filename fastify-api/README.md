@@ -115,5 +115,5 @@ DB_HOST=''
 # To-do
 
 - faire des tests unitaires
-- autorisé l'accès en public de l'api
+- autoriser l'accès en public de l'api
 - Faire une expiration sur le token et le vérifier dans isAuth
