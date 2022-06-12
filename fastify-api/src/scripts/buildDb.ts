@@ -24,9 +24,8 @@ const createEntities = async () => {
         { id: '1', label: 'ROLE_ADMIN' },
         { id: '2', label: 'ROLE_USER' }
     ])
-    const hashedPassword: string = bcrypt.hashSync('Password1@', bcrypt.genSaltSync(10))
     await User.bulkCreate([
-        encryptUser({ lastname: 'Admin', firstname: 'Admin', email: 'admin@admin.admin', password: hashedPassword, roleId: '1' }),
-        encryptUser({ lastname: 'User', firstname: 'User', email: 'user@user.user', password: hashedPassword, roleId: '2' })
+        encryptUser({ lastname: 'Admin', firstname: 'Admin', email: 'admin@admin.admin', password: bcrypt.hashSync('Password1@', bcrypt.genSaltSync(10)), roleId: '1' }),
+        encryptUser({ lastname: 'User', firstname: 'User', email: 'user@user.user', password: bcrypt.hashSync('Password1@', bcrypt.genSaltSync(10)), roleId: '2' })
     ])
 }
